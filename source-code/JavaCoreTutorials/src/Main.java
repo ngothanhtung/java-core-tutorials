@@ -2,18 +2,44 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        // Print with format
+        System.out.println("Hello\tWorld!");
+
+
+
+
         // Declare variables
         // Khai báo biến
-        short age = 43;
-        int year = 2021;
-        long salary = 1000000000L;
-        double weight = 70.5;
-        float height = 1.7f;
-        boolean gender = true;
-        char group = 'A';
+
+        short age = 43; // size = 2 bytes = 16 bits = [-32768, 32767]
+        int year = 2021; // size = 4 bytes = 32 bits = [-2^31, 2^31 - 1] = [-2147483648, 2147483647]
+        long salary = 1000000000L; // size = 8 bytes = 64 bits = [-2^63, 2^63 - 1] = [-9223372036854775808, 9223372036854775807]
+        double weight = 70.5; // size = 8 bytes = 64 bits
+        float height = 1.7f; // size = 4 bytes = 32 bits
+        boolean gender = true; // size = 1 bit = [0, 1]
+        // 1 byte = 8 bits = 2^8 = 256 ký tự
+        char group = 'A'; // size = 2 bytes = 16 bits = [0, 65535]
+//        String nameX = new String("Nguyen Van A");
         String name = "Nguyen Van A";
         // Array hobbies
         String[] hobbies = { "Reading", "Music", "Sport" };
+
+        char address = 'A';
+        Student s1 = new Student();
+        s1.name = "Nguyen Van A";
+        s1.email = "a@gmail.com";
+        s1.score = 8.5f;
+
+        Student s2 = new Student();
+        s2.name = "Nguyen Van B";
+        s2.email = "b@gmailc.om";
+        s2.score = 9.5f;
+
+        System.out.println("Name: " + s1.name);
+        System.out.println("Email: " + s1.email);
+
+        System.out.println("Name: " + s2.name);
+        System.out.println("Email: " + s2.email);
 
         // Underscore in numeric literals
         int x = 10_000_000;

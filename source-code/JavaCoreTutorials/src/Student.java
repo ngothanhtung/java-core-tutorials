@@ -6,6 +6,8 @@ public class Student {
     public String name;
     public String email;
 
+    public float score;
+
     private void display() {
         // Local variables
         String x = "-";
