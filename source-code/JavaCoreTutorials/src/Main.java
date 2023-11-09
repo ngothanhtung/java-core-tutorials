@@ -15,6 +15,21 @@ public class Main {
         // Array hobbies
         String[] hobbies = { "Reading", "Music", "Sport" };
 
+        // Underscore in numeric literals
+        int x = 10_000_000;
+        System.out.format("x: %d\n", x);
+
+        float pi =  3.14_15F;
+        System.out.format("pi: %f\n", pi);
+
+        long bytes = 0b1001_0010;
+        // Calculate 0b1001_0010 to decimal
+
+        // Tính 0b1001_0010 sang hệ thập phân, bằng cách nhân lần lượt từ phải sang trái, bắt đầu từ 1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048,
+        // sau đó cộng lại với nhau
+
+        System.out.format("bytes: %d\n", bytes);
+
         // Print with format
         // In ra màn hình
         System.out.format("Age: %d\n", age);
