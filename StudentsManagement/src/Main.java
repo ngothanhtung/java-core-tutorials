@@ -7,6 +7,10 @@ public class Main {
         s1.name = "Nguyen Van Tuan";
         s1.age = 18;
         s1.score = 15.5f;
+        s1.setMathScore(19.5f);
+
+        float mathScore = s1.getMathScore();
+        s1.englishScore = 8f;
         s1.gender = true;
         s1.display();
 
