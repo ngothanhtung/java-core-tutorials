@@ -149,7 +149,7 @@ public class Question {
             this.setCorrectOption(reader.readLine());
         }
     }
-       
+
     public boolean play() {
         // Hien thi noi dung cau hoi
         System.out.println(this.getQuestionContent());

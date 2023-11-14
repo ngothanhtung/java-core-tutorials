@@ -25,9 +25,6 @@ public class Quiz {
             q.enter(i);            
         }
         */
-
-
-     
         
         int score = 0;
         for (int i = 1; i <= 8; i++) {
@@ -38,7 +35,6 @@ public class Quiz {
                 score++;
             }
         }
-       
         System.out.println("YOUR SCORE: " + score);
     }    
 }
