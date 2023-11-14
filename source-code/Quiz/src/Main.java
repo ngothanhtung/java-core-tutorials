@@ -1,7 +1,13 @@
+import packageA.ClassA;
+
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
 // then press Enter. You can now see whitespace characters in your code.
 public class Main {
     public static void main(String[] args) {
+
+        ClassA ca = new ClassA();
+        ca.nickName = "Hello";
+
 
         int index = 1;
         Question question;
