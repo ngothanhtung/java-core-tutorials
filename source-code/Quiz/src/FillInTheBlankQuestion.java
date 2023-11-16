@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class FillInTheBlankQuestion extends Question {
 
     @Override
-    public void display() {
+    public boolean display() {
         System.out.println(this.get_questionContent());
         Scanner in = new Scanner(System.in);
         System.out.print("Your answer: ");
@@ -17,11 +17,13 @@ public class FillInTheBlankQuestion extends Question {
         if (this.get_correctAnswer().equals(userAnswer)) {
             System.out.println("Congratulations! You are correct.");
             System.out.println("=============================================");
+            return true;
 
         } else {
             System.out.println("Sorry! You are wrong.");
             System.out.println("Correct option: " + this.get_correctAnswer());
             System.out.println("=============================================");
+            return false;
         }
     }
 

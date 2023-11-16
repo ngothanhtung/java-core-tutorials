@@ -3,33 +3,55 @@
 public class Main {
     public static void main(String[] args) {
 
-        Student s1 = new Student();
-        s1.name = "Nguyen Van Tuan";
-        s1.age = 18;
-        s1.score = 15.5f;
-        s1.setMathScore(19.5f);
+//        Student s1 = new Student();
+//        s1.name = "Nguyen Van Tuan";
+//        s1.age = 18;
+//        s1.score = 15.5f;
+//        s1.setMathScore(19.5f);
+//
+//        float mathScore = s1.getMathScore();
+//        s1.englishScore = 8f;
+//        s1.gender = true;
+//        s1.display();
+//
+//        Student s2 = new Student();
+//        s2.name = "Tran Van Nam";
+//        s2.age = 19;
+//        s2.score = 16.5f;
+//        s2.gender = true;
+//
+//        System.out.format("-------------------------\n");
+//        s2.display();
+//
+//        Student s3 = new Student();
+//        s3.name = "Pham Thi Hong";
+//        s3.age = 18;
+//        s3.score = 18.0f;
+//        s3.gender = false;
+//
+//        System.out.format("-------------------------\n");
+//        s3.display();
 
-        float mathScore = s1.getMathScore();
-        s1.englishScore = 8f;
-        s1.gender = true;
-        s1.display();
+        try {
 
-        Student s2 = new Student();
-        s2.name = "Tran Van Nam";
-        s2.age = 19;
-        s2.score = 16.5f;
-        s2.gender = true;
+            // Reference type
+            SoNguyen soNguyen1 = new SoNguyen();
+            soNguyen1.set_giaTri(10);
+            System.out.println(soNguyen1.get_giaTri());
 
-        System.out.format("-------------------------\n");
-        s2.display();
+            // Reference type
+            SoNguyen soNguyen2 = soNguyen1;
+            soNguyen2.set_giaTri(20);
+            System.out.println(soNguyen2.get_giaTri());
 
-        Student s3 = new Student();
-        s3.name = "Pham Thi Hong";
-        s3.age = 18;
-        s3.score = 18.0f;
-        s3.gender = false;
+            System.out.println(soNguyen1.get_giaTri());
 
-        System.out.format("-------------------------\n");
-        s3.display();
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        }
+
+
+
+        System.out.println("Hello world");
     }
 }

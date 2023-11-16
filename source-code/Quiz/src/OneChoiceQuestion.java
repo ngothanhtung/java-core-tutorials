@@ -40,7 +40,7 @@ public class OneChoiceQuestion extends Question {
     }
 
     @Override
-    public void display() {
+    public boolean display() {
         System.out.println(this.get_questionContent());
         System.out.println("A: " + this.get_option1());
         System.out.println("B: " + this.get_option2());
@@ -53,13 +53,10 @@ public class OneChoiceQuestion extends Question {
         String userAnswer = in.nextLine();
 
         if (this.get_correctAnswer().equals(userAnswer)) {
-            System.out.println("Congratulations! You are correct.");
-            System.out.println("=============================================");
+            return true;
         }
         else {
-            System.out.println("Sorry! You are wrong.");
-            System.out.println("Correct option: " + this.get_correctAnswer());
-            System.out.println("=============================================");
+            return false;
         }
     }
 
@@ -129,4 +126,6 @@ public class OneChoiceQuestion extends Question {
             throw new RuntimeException(e);
         }
     }
+
+
 }

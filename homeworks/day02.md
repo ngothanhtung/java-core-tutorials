@@ -3,7 +3,7 @@
 ## Phần A
 
 1. Nhập vào 03 số nguyên. Sau đó in tổng của 03 số đó theo định dạng như sau: "Tong cua 03 so nguyen a, b, c la: "
-2. Nhập vào 02 số nguyên. Sau đó in trung bình cộng của 03 số đó theo định dạng như sau: "TBC cua 03 so nguyen a, b, c la: "
+2. Nhập vào 03 số nguyên. Sau đó in trung bình cộng của 03 số đó theo định dạng như sau: "TBC cua 03 so nguyen a, b, c la: "
 3. Nhập vào bán kính của hình tròn. Sau đó tính chu vi và diện tích. Biết Pi = 3.14
 4. Nhập vào hai cạnh a, b và đường cao h. Sau đó tính diện tích hình bình hành. Gợi ý: S = (a+b)\*h/2).
 5. Nhập vào 3 cạnh của hình hộp chữ nhật, Sau đó tính thể tích của nó.

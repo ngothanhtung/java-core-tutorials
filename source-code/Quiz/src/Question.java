@@ -1,4 +1,4 @@
-public abstract class Question {
+public abstract class Question implements IQuestion {
     private String _questionContent;
     private String _correctAnswer;
 
@@ -18,7 +18,7 @@ public abstract class Question {
         this._correctAnswer = _correctAnswer;
     }
 
-    public abstract void display();
+    public abstract boolean display();
 
     public abstract void enterData(int index);
 

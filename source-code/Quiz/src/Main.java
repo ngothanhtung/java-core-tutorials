@@ -4,23 +4,41 @@ import packageA.ClassA;
 // then press Enter. You can now see whitespace characters in your code.
 public class Main {
     public static void main(String[] args) {
-
-        ClassA ca = new ClassA();
-        ca.nickName = "Hello";
-
-
+        int score = 0;
         int index = 1;
+        double money = 0;
         Question question;
         for (index = 1; index <= 10; index++) {
+            System.out.println("=============================================");
+            System.out.println("Question " + index);
+            System.out.println("=============================================");
+            boolean result = false;
             if (index <= 5) {
                 question = new OneChoiceQuestion();
                 question.loadData(index);
-                question.display();
+                result = question.display();
             } else {
                 question = new FillInTheBlankQuestion();
                 question.loadData(index);
-                question.display();
+                result = question.display();
             }
+
+            if (result) {
+                score++;
+                money += 100000;
+                System.out.println("Congratulations! You are correct.");
+                System.out.println("=============================================");
+            }
+            else {
+                System.out.println("Sorry! You are wrong.");
+                System.out.println("Correct option: " + question.get_correctAnswer());
+                System.out.println("=============================================");
+            }
+
+            System.out.println("Your score: " + score);
+            // format money with 2 decimal places
+            System.out.printf("Your money: %.0f\n", money);
+
         }
 
 //        Question q1;
