@@ -48,15 +48,16 @@ public class OneChoiceQuestion extends Question {
         System.out.println("D: " + this.get_option4());
         System.out.println("------------------------------");
 
-        Scanner in = new Scanner(System.in);
-        System.out.print("Your answer: ");
-        String userAnswer = in.nextLine();
+        try (Scanner in = new Scanner(System.in)) {
+            System.out.print("Your answer: ");
+            String userAnswer = in.nextLine();
 
-        if (this.get_correctAnswer().equals(userAnswer)) {
-            return true;
-        }
-        else {
-            return false;
+            if (this.get_correctAnswer().equals(userAnswer)) {
+                return true;
+
+            } else {
+                return false;
+            }
         }
     }
 
@@ -66,25 +67,25 @@ public class OneChoiceQuestion extends Question {
         System.out.println("ENTER QUESTION " + index);
         System.out.println("-------------------------------------------------");
 
-        Scanner in = new Scanner(System.in);
-        System.out.print("Enter question content: ");
-        this.set_questionContent(in.nextLine());
+        try (Scanner in = new Scanner(System.in)) {
+            System.out.print("Enter question content: ");
+            this.set_questionContent(in.nextLine());
 
-        System.out.print("Enter option A: ");
-        this.set_option1(in.nextLine());
+            System.out.print("Enter option A: ");
+            this.set_option1(in.nextLine());
 
-        System.out.print("Enter option B: ");
-        this.set_option2(in.nextLine());
+            System.out.print("Enter option B: ");
+            this.set_option2(in.nextLine());
 
-        System.out.print("Enter option C: ");
-        this.set_option3(in.nextLine());
+            System.out.print("Enter option C: ");
+            this.set_option3(in.nextLine());
 
-        System.out.print("Enter option D: ");
-        this.set_option4(in.nextLine());
+            System.out.print("Enter option D: ");
+            this.set_option4(in.nextLine());
 
-        System.out.print("Correct answer: ");
-        this.set_correctAnswer(in.nextLine());
-
+            System.out.print("Correct answer: ");
+            this.set_correctAnswer(in.nextLine());
+        }
         // Ghi dữ liệu vào file
         String fileName = index + ".txt";
         try (FileWriter file = new FileWriter(fileName); BufferedWriter writer = new BufferedWriter(file)) {
@@ -126,6 +127,5 @@ public class OneChoiceQuestion extends Question {
             throw new RuntimeException(e);
         }
     }
-
 
 }
