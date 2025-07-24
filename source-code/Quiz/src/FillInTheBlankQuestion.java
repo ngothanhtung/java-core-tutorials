@@ -1,60 +1,84 @@
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.Scanner;
 
 public class FillInTheBlankQuestion extends Question {
 
+    // Constructors
+    public FillInTheBlankQuestion() {
+        super();
+    }
+
+    public FillInTheBlankQuestion(String questionContent, String correctAnswer) {
+        super(questionContent, correctAnswer);
+    }
+
     @Override
     public boolean display() {
-        System.out.println(this.get_questionContent());
-        try (Scanner in = new Scanner(System.in)) {
+        System.out.println(getQuestionContent());
+        try (Scanner scanner = new Scanner(System.in)) {
             System.out.print("Your answer: ");
-            String userAnswer = in.nextLine();
-
-            if (this.get_correctAnswer().equals(userAnswer)) {
-                return true;
-
-            } else {
-                return false;
-            }
+            String userAnswer = scanner.nextLine();
+            return isCorrectAnswer(userAnswer);
         }
     }
 
     @Override
-    public void enterData(int index) {
+    public void enterData(int index) throws IOException {
         System.out.println("-------------------------------------------------");
         System.out.println("ENTER QUESTION " + index);
         System.out.println("-------------------------------------------------");
 
-        try (Scanner in = new Scanner(System.in)) {
+        try (Scanner scanner = new Scanner(System.in)) {
             System.out.print("Enter question content: ");
-            this.set_questionContent(in.nextLine());
+            setQuestionContent(scanner.nextLine());
 
-            System.out.print("Correct option ");
-            this.set_correctAnswer(in.nextLine());
+            System.out.print("Correct answer: ");
+            setCorrectAnswer(scanner.nextLine());
         }
-        String fileName = index + ".txt";
-        try (FileWriter file = new FileWriter(fileName); BufferedWriter writer = new BufferedWriter(file)) {
-            writer.write(this.get_questionContent());
-            writer.newLine();
-            writer.write(this.get_correctAnswer());
-            writer.newLine();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+
+        // Save data to file
+        saveToFile(index);
     }
 
     @Override
-    public void loadData(int index) {
+    public void loadData(int index) throws IOException {
         String fileName = index + ".txt";
-        try (FileReader file = new FileReader(fileName); BufferedReader reader = new BufferedReader(file)) {
-            this.set_questionContent(reader.readLine());
-            this.set_correctAnswer(reader.readLine());
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+        try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
+            setQuestionContent(readLineOrEmpty(reader));
+            setCorrectAnswer(readLineOrEmpty(reader));
         }
+    }
+
+    // Helper methods
+    private void saveToFile(int index) throws IOException {
+        String fileName = index + ".txt";
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
+            writer.write(getQuestionContent());
+            writer.newLine();
+            writer.write(getCorrectAnswer());
+            writer.newLine();
+        }
+    }
+
+    private String readLineOrEmpty(BufferedReader reader) throws IOException {
+        String line = reader.readLine();
+        return line != null ? line : "";
+    }
+
+    // Legacy getters/setters for backward compatibility
+    public String get_questionContent() {
+        return getQuestionContent();
+    }
+
+    public void set_questionContent(String content) {
+        setQuestionContent(content);
+    }
+
+    public String get_correctAnswer() {
+        return getCorrectAnswer();
+    }
+
+    public void set_correctAnswer(String answer) {
+        setCorrectAnswer(answer);
     }
 }

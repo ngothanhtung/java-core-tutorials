@@ -1,26 +1,52 @@
+import java.io.IOException;
+
 public abstract class Question implements IQuestion {
-    private String _questionContent;
-    private String _correctAnswer;
+    protected String questionContent;
+    protected String correctAnswer;
 
-    public String get_questionContent() {
-        return _questionContent;
+    // Constructor
+    public Question() {
+        this.questionContent = "";
+        this.correctAnswer = "";
     }
 
-    public void set_questionContent(String _questionContent) {
-        this._questionContent = _questionContent;
+    public Question(String questionContent, String correctAnswer) {
+        this.questionContent = questionContent;
+        this.correctAnswer = correctAnswer;
     }
 
-    public String get_correctAnswer() {
-        return _correctAnswer;
+    // Getters and Setters with proper Java naming convention
+    public String getQuestionContent() {
+        return questionContent;
     }
 
-    public void set_correctAnswer(String _correctAnswer) {
-        this._correctAnswer = _correctAnswer;
+    public void setQuestionContent(String questionContent) {
+        this.questionContent = questionContent != null ? questionContent : "";
     }
 
+    public String getCorrectAnswer() {
+        return correctAnswer;
+    }
+
+    public void setCorrectAnswer(String correctAnswer) {
+        this.correctAnswer = correctAnswer != null ? correctAnswer : "";
+    }
+
+    // Abstract methods
+    @Override
     public abstract boolean display();
 
-    public abstract void enterData(int index);
+    @Override
+    public abstract void enterData(int index) throws IOException;
 
-    public abstract void loadData(int index);
+    @Override
+    public abstract void loadData(int index) throws IOException;
+
+    // Helper method to check if answer is correct
+    protected boolean isCorrectAnswer(String userAnswer) {
+        if (userAnswer == null || correctAnswer == null) {
+            return false;
+        }
+        return correctAnswer.trim().equalsIgnoreCase(userAnswer.trim());
+    }
 }
